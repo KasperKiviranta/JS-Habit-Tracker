@@ -5,6 +5,92 @@
 // It uses the current 'state' object to generate fresh HTML: no templates!
 // =====================================================================
 // render(): The master function that draws the entire UI from scratch
+
+// Utilities & Persistence
+const STORAGE_KEY = "habit-tracker";
+
+// Load state from localStorage
+function loadState() {
+  try {
+    const raw = localStorage.getItem(STORAGE_KEY);
+    return raw ? JSON.parse(raw) : null;
+  } catch (err) {
+    console.error("Failed to load state:", err);
+    return null;
+  }
+}
+
+// Save state to localStorage
+function saveState(state) {
+  try {
+    localStorage.setItem(STORAGE_KEY, JSON.stringify(state));
+  } catch (err) {
+    console.error("Failed to save state:", err);
+  }
+}
+
+// Return today's date key "YYYY-MM-DD"
+function todayKey(d = new Date()) {
+  return d.toISOString().slice(0, 10);
+}
+
+// Get an array of 7 date keys 
+function getWeekKeys(reference = new Date()) {
+  const keys = [];
+  for (let i = 6; i >= 0; i--) {
+    const d = new Date(reference);
+    d.setDate(reference.getDate() - i);
+    keys.push(d.toISOString().slice(0, 10));
+  }
+  return keys;
+}
+
+// Pretty format for #week-range (locale short)
+function formatRange(weekKeys) {
+  const a = new Date(weekKeys[0]);
+  const b = new Date(weekKeys[6]);
+  // Use user locale for nice formatting
+  return `${a.toLocaleDateString()} — ${b.toLocaleDateString()}`;
+}
+
+// Create a new habit object
+function newHabit(name) {
+  const id = (typeof crypto !== "undefined" && crypto.randomUUID) ? crypto.randomUUID() : ("id-" + Date.now() + "-" + Math.floor(Math.random() * 1e6));
+  return { id, name, log: {} };
+}
+
+// Compute consecutive streak up to today
+function computeStreak(habit) {
+  if (!habit || !habit.log) return 0;
+  let streak = 0;
+  let d = new Date();
+  while (true) {
+    const key = todayKey(d);
+    if (habit.log[key]) {
+      streak++;
+      d.setDate(d.getDate() - 1);
+    } else {
+      break;
+    }
+  }
+  return streak;
+}
+
+// App State & DOM refs
+let state = loadState() || { habits: [] };
+
+// DOM elements 
+const rows = document.getElementById("rows");
+const weekRangeEl = document.getElementById("week-range");
+const habitForm = document.getElementById("habit-form");
+const habitInput = document.getElementById("habit-name");
+const exportBtn = document.getElementById("export-json");
+const importInput = document.getElementById("import-json");
+const resetBtn = document.getElementById("reset-all");
+
+// Render depends on current weekKeys
+let weekKeys = getWeekKeys();
+
 function render() {
   // rows: reference to the container where habit rows are inserted
   // innerHTML = "" clears all existing content to start fresh
