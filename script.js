@@ -54,7 +54,7 @@ function render() {
     nameCell.textContent = habit.name;
     nameCell.style.padding = "10px";
     nameCell.style.fontWeight = "500";
-    nameCell.style.color = "#0b3b58";
+    nameCell.style.color = "#ffffffff";
     row.appendChild(nameCell);
 
     // Day cells
