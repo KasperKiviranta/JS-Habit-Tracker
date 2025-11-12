@@ -41,17 +41,23 @@ Alternatively:
 
 No build steps or dependencies needed.
 
-🪞 Reflection & Self-Assessment
+## 🪞 Reflection & Self-Assessment
 
-Building this project helped me understand how front-end applications manage data, user input, and visual state together. I learned how to create a fully functional interface using only HTML, CSS, and JavaScript without relying on frameworks. Managing habits with an array of Boolean values showed me how simple data structures can drive meaningful UI behavior. I practiced dynamically rendering elements, updating them in response to events, and persisting everything in localStorage.
+### Learning Reflection
 
-Working on layout and styling improved my grasp of CSS positioning and responsive design. Testing dark mode and different screen widths made me more aware of accessibility and contrast. I also realized the importance of separating logic from presentation—keeping rendering and data updates in different functions made the code cleaner and easier to extend.
+Building this project helped me with understanding how front-end applications manage their data, user input and visual state together. I learned how to create a fully functional interface using only HTML, CSS, and JavaScript without relying on any frameworks. Managing habits with array of Boolean values showed me how simple data structures can drive UI behavior. I practiced dynamically rendering elements, updating them in response to events and persisting everything data related in `localStorage`.
 
-Through debugging, I improved at reading console errors and tracing state changes. If I continued developing the project, I would add weekly history tracking and data export syncing. Overall, this project gave me practical confidence in building browser-based tools and applying JavaScript fundamentals in a structured way.
+Working on layout and styling improved my grasp of CSS positioning and responsive design. Testing dark mode made me more aware of accessibilitity and visual side of web development.
 
-Self-Assessment Table
-Criterion	Description	Points
-Completeness	Features list, setup steps, screenshots	✅ 1
-Clarity	Clear architecture explanation & known limits	✅ 1
-Reflection	200–300 word reflection + self-assessment	✅ 1
-Total	—	3 / 3
+Through debugging, I improved at reading console errors and tracing state changes. If I continued developing the project I would add weekly history tracking. Overall this project gave me practical confidence in building browser based tools and applying JavaScript  in structured way.
+
+---
+
+### Self-Assessment
+
+| Criterion | Description | Points |
+|------------|--------------|--------|
+| **Completeness** | Features list, setup steps, screenshots | ✅ 1 |
+| **Clarity** | Clear architecture explanation & known limits | ✅ 1 |
+| **Reflection** | 200–300 word reflection + self-assessment | ✅ 1 |
+| **Total** | — | **3 / 3** |
