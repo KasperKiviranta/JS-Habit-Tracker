@@ -15,4 +15,3 @@ body{
   line-height:1.6; /* Better readability */
 }
 button:focus, input:focus{outline:3px solid var(--ring); outline-offset:2px} /* Blue focus ring for keyboard users */
-/* Additional: Focus styles ensure accessibility for keyboard navigation */
