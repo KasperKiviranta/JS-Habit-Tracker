@@ -59,5 +59,4 @@ Through debugging, I improved at reading console errors and tracing state change
 |------------|--------------|--------|
 | **Completeness** | Features list, setup steps, screenshots | ✅ 1 |
 | **Clarity** | Clear architecture explanation & known limits | ✅ 1 |
-| **Reflection** | 200–300 word reflection + self-assessment | ✅ 1 |
-| **Total** | — | **3 / 3** |
+| **Total** | — | **2 / 2** |
